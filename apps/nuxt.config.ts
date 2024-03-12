@@ -3,7 +3,7 @@
 export default defineNuxtConfig({
   css: ["bootstrap/dist/css/bootstrap.css"],
 
-  modules: ["@pinia/nuxt"],
+  modules: ["@pinia/nuxt", "@pinia-plugin-persistedstate/nuxt"],
 
   plugins: ["~/plugins/pinia.ts"],
 });

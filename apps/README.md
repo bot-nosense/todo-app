@@ -1,2 +1,1 @@
-yarn add pinia-plugin-persist  ?
-yarn add pinia-plugin-persistedstate  
+yarn add @pinia-plugin-persistedstate/nuxt  

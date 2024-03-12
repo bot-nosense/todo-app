@@ -1,14 +1,13 @@
 <template>
     <div>
-        <p>asdjhsadf</p>
+        <p>{{ store.todoStore.toDoList }}</p>
     </div>
 </template>
 
 <script setup lang="ts">
-// import { toDoStore } from '~/stores'
-// onBeforeMount(() => {
-//     toDoStore.fetchTasks()
-// })
+import { useStore } from '~/stores'
+const store = useStore()
+
 </script>
 
 <style scoped></style>

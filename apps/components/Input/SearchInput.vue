@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <div class="input-group">
         <input type="text" class="form-control" placeholder="Searching ..." :value="searchValue"
             @input="updateSearchValue">
@@ -17,4 +17,4 @@ const updateSearchValue = (event: Event) => {
     searchValue.value = (event.target as HTMLInputElement).value
     props.onUpdateSearchValue(searchValue.value)
 }
-</script>
+</script> -->

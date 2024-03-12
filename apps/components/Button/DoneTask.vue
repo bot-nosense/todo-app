@@ -1,4 +1,4 @@
-<!-- DoneTask.vue -->
+<!-- DoneTask.vue
 
 <template>
     <div class="d-flex justify-content-end">
@@ -45,4 +45,4 @@ const closeDoneTaskModal = () => { isDoneTaskModalOpen.value = false }
 const showTask = () => { }
 </script>
 
-<style></style>
+<style></style> -->

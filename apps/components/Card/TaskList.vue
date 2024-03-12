@@ -1,4 +1,4 @@
-<!-- TaskList.vue -->
+TaskList.vue
 
 <template>
     <div class="card text-center vh-100 d-flex flex-column justify-content-center">
@@ -6,7 +6,7 @@
         <div class="card-body d-flex justify-content-between">
 
             <!-- To Do List -->
-            <div class="card mx-auto" style="width: 45%;" @dragover="store.handleDragOver($event, 'toDoList')">
+            <!-- <div class="card mx-auto" style="width: 45%;" @dragover="store.handleDragOver($event, 'toDoList')">
 
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <span class="text-start">TO DO LIST</span>
@@ -26,10 +26,10 @@
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- Done List -->
-            <div class="card mx-auto" style="width: 45%;" @dragover="store.handleDragOver($event, 'doneList')">
+            <!-- <div class="card mx-auto" style="width: 45%;" @dragover="store.handleDragOver($event, 'doneList')">
 
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <span class="text-start">DONE LIST</span>
@@ -46,15 +46,15 @@
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </template>
 
 
 <script setup lang="ts">
-import { useToDoStore } from '~/stores/toDo'
-const store = useToDoStore()
+// import { useToDoStore } from '~/stores/toDo'
+// const store = useToDoStore()
 </script>
 
 

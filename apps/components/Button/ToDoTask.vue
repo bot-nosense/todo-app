@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <div class="d-flex justify-content-end">
         <button type="button" class="btn btn-outline-dark w-100 text-start task-title" draggable="true"
             data-bs-toggle="modal" :data-bs-target="'#' + todoTask.id"
@@ -55,4 +55,4 @@ const updateTask = (_userID: number, _title: string) => {
 }
 </script>
 
-<style></style>
+<style></style> -->

@@ -1,14 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
-
-export default defineNuxtConfig ({
-
+export default defineNuxtConfig({
   css: ["bootstrap/dist/css/bootstrap.css"],
-  plugins: [
-  ],
 
-  modules: [
-    '@pinia/nuxt'
-  ]
+  modules: ["@pinia/nuxt"],
 
+  plugins: ["~/plugins/pinia.ts"],
 });

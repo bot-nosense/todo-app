@@ -1,13 +1,15 @@
+<!-- apps\app.vue -->
+
 <template>
   <div>
-    <CardTaskList />
+    <TaskListCard />
   </div>
 </template>
 
 <script setup lang="ts">
-import { useToDoStore } from '~/stores/toDo'
-const store = useToDoStore();
-onMounted(() => {
-  store.fetchTasks()
+import { useStore } from '~/stores'
+const store = useStore()
+onBeforeMount(() => {
+  store.todoStore.fetchTasks()
 })
 </script>

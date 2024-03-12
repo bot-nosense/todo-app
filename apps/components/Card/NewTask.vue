@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <div class="d-flex justify-content-end">
         <NuxtLink to="" class="" data-bs-toggle="modal" data-bs-target="#addTaskModal" @click="openCreateTaskModal">ADD
             TASK
@@ -48,4 +48,4 @@ const openCreateTaskModal = () => {
 }
 
 const closeCreateTaskModal = () => { isCreateTaskModalOpen.value = false }
-</script>
+</script> -->

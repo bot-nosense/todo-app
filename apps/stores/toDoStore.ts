@@ -15,13 +15,13 @@ const filteredList = (taskList: Task[], inputSearch: string) => {
 
 export class Task {
   id: number;
-  userID: number;
+  userId: number;
   title: string;
   completed: boolean;
 
-  constructor(id: number, userID: number, title: string, completed: boolean) {
+  constructor(id: number, userId: number, title: string, completed: boolean) {
     this.id = id || 0;
-    this.userID = userID || 0;
+    this.userId = userId || 0;
     this.title = title || "";
     this.completed = completed || false;
   }
@@ -90,6 +90,7 @@ export const useToDoStore = defineStore({
 
     openModal() {
       console.log("open modal");
+      this.modalStatus = false;
       this.modalStatus = true;
     },
 
@@ -98,15 +99,24 @@ export const useToDoStore = defineStore({
       this.modalStatus = false;
     },
 
-    insertNewTask(_userID: number, _title: string) {
-      const task = new Task(this.getID(), _userID, _title, false);
+    insertNewTask(_userId: number, _title: string) {
+      const task = new Task(this.getID(), _userId, _title, false);
       this.pushList(this.toDoList, task);
+      this.cloesModal();
     },
 
-    updateTask(task: Task, id: number, _userID: number, _title: string) {
-      if (task.id === id) {
-        (task.userID = _userID), (task.title = _title);
-      }
+    updateTask(detailTask: Task) {
+      // task: Task, id: number, _userId: number, _title: string
+      // if (task.id === id) {
+      //   (task.userId = _userId), (task.title = _title);
+      // }
+      console.log(
+        "update",
+        detailTask.id,
+        detailTask.userId,
+        detailTask.title,
+        detailTask.completed
+      );
     },
 
     deleteTask(list: Task[], task: Task) {

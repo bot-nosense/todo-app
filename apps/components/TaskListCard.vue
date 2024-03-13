@@ -1,26 +1,25 @@
+<!-- apps\components\TaskListCard.vue -->
+
 <template>
     <div class="card mx-auto" style="width: 45%;">
-        <!-- @dragover="store.handleDragOver($event, 'toDoList') -->
 
         <div class="card-header d-flex justify-content-between align-items-center">
             <span class="text-start">{{ titleComponent }}</span>
             <div v-if="props.componentName === 'todo'">
-                <NuxtLink to="" class="d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#modalID"
-                    @click="store.todoStore.openModal">
+                <NuxtLink to="" class="d-flex justify-content-end" data-bs-toggle="modal"
+                    :data-bs-target="'#' + task.id" @click="store.todoStore.openModal">
                     ADD TASK
                 </NuxtLink>
-                <TaskDetailModal :modalName="modalName" :task="{ id: 0, userID: 0, title: '', completed: false }" />
             </div>
         </div>
 
         <div class="card-body">
             <SearchInput :componentName="componentName" />
-            <!-- :value="store.toDoTaskSearch" :onUpdateSearchValue="store.handleUpdateToDoTaskSearch" -->
 
             <div style="height: calc(100vh - 140px); overflow-y: auto;">
                 <ul class="list">
-                    <li v-for="singleTask in tasks" :key="singleTask.id">
-                        <TaskButton :task="singleTask" />
+                    <li v-for="singleTask in taskList" :key="singleTask.id">
+                        <TaskButton :detailTask="singleTask" />
                     </li>
                 </ul>
             </div>
@@ -35,11 +34,14 @@ import { useStore } from '~/stores'
 
 const store = useStore()
 const props = defineProps<{
-    tasks: Task[],
+    taskList: Task[],
     componentName: string,
 }>()
 const titleComponent = ref<string>(props.componentName === 'todo' ? 'TO DO LIST' : 'DONE LIST')
-const modalName = ref<string>('ADD TASK')
+const task = reactive({
+    id: 0, userId: 0, title: '', completed: false
+})
+
 </script>
 
 <style scoped>

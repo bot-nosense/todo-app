@@ -32,16 +32,14 @@ export const useToDoStore = defineStore({
   state: (): {
     toDoList: Task[];
     doneList: Task[];
-    toDoSearch: "";
-    doneSearch: "";
-    modalStatus: boolean;
+    toDoSearch: string;
+    doneSearch: string;
   } => {
     return {
       toDoList: [],
       doneList: [],
       toDoSearch: "",
       doneSearch: "",
-      modalStatus: false,
     };
   },
   getters: {
@@ -88,35 +86,15 @@ export const useToDoStore = defineStore({
       this.doneList = [];
     },
 
-    openModal() {
-      console.log("open modal");
-      this.modalStatus = false;
-      this.modalStatus = true;
-    },
-
-    cloesModal() {
-      console.log("cloes modal");
-      this.modalStatus = false;
-    },
-
     insertNewTask(_userId: number, _title: string) {
       const task = new Task(this.getID(), _userId, _title, false);
       this.pushList(this.toDoList, task);
-      this.cloesModal();
     },
 
-    updateTask(detailTask: Task) {
-      // task: Task, id: number, _userId: number, _title: string
-      // if (task.id === id) {
-      //   (task.userId = _userId), (task.title = _title);
-      // }
-      console.log(
-        "update",
-        detailTask.id,
-        detailTask.userId,
-        detailTask.title,
-        detailTask.completed
-      );
+    updateTask(task: Task, _userId: number, _title: string) {
+      task.userId = _userId;
+      task.title = _title;
+      console.log("update ", task.id, task.userId, task.title, task.completed);
     },
 
     deleteTask(list: Task[], task: Task) {

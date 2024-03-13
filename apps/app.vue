@@ -16,6 +16,4 @@ onBeforeMount(() => {
   // store.todoStore.clearLocalStorage()
   store.todoStore.fetchTasks()
 })
-
-console.log('filteredToDoList', store.todoStore.filteredToDoList)
 </script>

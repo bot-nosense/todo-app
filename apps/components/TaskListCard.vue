@@ -73,6 +73,7 @@
 <script setup lang="ts">
 import type { Task } from '~/stores/toDoStore';
 import { useStore } from '~/stores'
+import { reactive, ref } from 'vue';
 
 const store = useStore()
 const userIDModify = ref<number>(0)

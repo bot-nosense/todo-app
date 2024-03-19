@@ -1,9 +1,5 @@
-
+// apps\tsconfig.json
 
 {
   "extends": "./.nuxt/tsconfig.json",
-  // "compilerOptions": {
-  //   "types": ["pinia-plugin-persist"],
-  //   "typeRoots": ["./node_modules/@types", "./typings"]
-  // }
 }

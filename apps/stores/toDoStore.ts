@@ -13,6 +13,10 @@ const filteredList = (taskList: Task[], inputSearch: string) => {
     .sort((a, b) => a.title.localeCompare(b.title));
 };
 
+const pushList = (list: Task[], task: Task) => {
+  list.push(task);
+};
+
 export class Task {
   id: number;
   userId: number;
@@ -52,12 +56,15 @@ export const useToDoStore = defineStore({
     },
   },
   actions: {
-    pushList(list: Task[], task: Task) {
-      list.push(task);
+    removeFromList(list: Task[], task: Task) {
+      const index = list.findIndex((item) => item === task);
+      if (index !== -1) {
+        list.splice(index, 1);
+      }
     },
 
     getID(): number {
-      return Math.floor(Math.random() * (1000000 - 100000 + 1)) + 10000;
+      return Math.floor(Math.random() * (1000000 - 100000 + 1)) + 10000; // chuyển vào common
     },
 
     async fetchTasks() {
@@ -88,7 +95,7 @@ export const useToDoStore = defineStore({
 
     insertNewTask(_userId: number, _title: string) {
       const task = new Task(this.getID(), _userId, _title, false);
-      this.pushList(this.toDoList, task);
+      pushList(this.toDoList, task);
     },
 
     updateTask(task: Task, _userId: number, _title: string) {
@@ -103,10 +110,18 @@ export const useToDoStore = defineStore({
         list.splice(index, 1);
       }
     },
+
+    doneTask(task: Task, _userId: number, _title: string) {
+      task.completed = true;
+      task.userId = _userId;
+      task.title = _title;
+      this.removeFromList(this.toDoList, task);
+      pushList(this.doneList, task);
+    },
   },
   persist: {
     // bug: Hydration completed but contains mismatches
-    // type SSR sẽ gặp lỗi runtime do data từ SSR không khớp với CSR
+    // SSR trả về DOM, sau đó hydration để kích hoạt các comps, xung đột với DOM của client
     storage: persistedState.localStorage,
   },
 });

@@ -6,6 +6,7 @@
             :data-bs-target="'#' + detailTask.id" @click="openModal"> {{ detailTask.title }}
         </button>
 
+        <!-- bắt sự kiện click thay đổi trạng thái đóng mở modal -->
         <Teleport to="body">
             <div class="modal fade show " tabindex="-1" aria-labelledby="taskDetailModalLabel" aria-hidden="true"
                 :id="detailTask.id + ''" :style="{ 'display': modalStatus ? 'block' : 'none' }">
@@ -22,7 +23,8 @@
                                     <span class="input-group-text " id="inputTextuserId">User ID</span>
                                 </div>
                                 <input type="text" class="form-control" aria-label="userId" id="validationuserId"
-                                    aria-describedby="inputTextuserId" v-model="userIDModify" :readonly="readonlyStatus">
+                                    aria-describedby="inputTextuserId" v-model="userIDModify"
+                                    :readonly="readonlyStatus">
                             </div>
 
                             <div class="input-group mb-3">
@@ -37,6 +39,8 @@
                             <button type="button" class="btn btn-outline-success" v-if="componentName === 'todo'"
                                 @click="store.todoStore.updateTask(detailTask, userIDModify, titleModify)">UPDATE</button>
                             <button type="button" class="btn btn-outline-success" @click="deleteTask">DELETE</button>
+                            <button type="button" class="btn btn-outline-success"
+                                @click="store.todoStore.doneTask(detailTask, userIDModify, titleModify)">DONE</button>
                             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal"
                                 @click="closeModal">CLOSE</button>
                         </div>

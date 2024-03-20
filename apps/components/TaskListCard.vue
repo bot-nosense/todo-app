@@ -28,7 +28,7 @@
                                         </div>
                                         <input type="text" class="form-control" aria-label="userId"
                                             id="validationuserId" aria-describedby="inputTextuserId"
-                                            v-model="userIDModify" >
+                                            v-model="userIDModify">
                                     </div>
 
                                     <div class="input-group mb-3">

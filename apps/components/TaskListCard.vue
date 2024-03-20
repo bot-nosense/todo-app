@@ -14,8 +14,6 @@
                 <Teleport to="body">
                     <div class="modal fade show " tabindex="-1" aria-labelledby="taskDetailModalLabel"
                         aria-hidden="true" :id="task.id + ''" :style="{ 'display': modalStatus ? 'block' : 'none' }">
-                        <!--   -->
-                        <!-- v-if="isDoneTaskModalOpen"  :id="task.id + ''"-->
                         <div class="modal-dialog modal-xl">
                             <div class="modal-content ">
                                 <div class="modal-header">
@@ -30,8 +28,7 @@
                                         </div>
                                         <input type="text" class="form-control" aria-label="userId"
                                             id="validationuserId" aria-describedby="inputTextuserId"
-                                            v-model="userIDModify">
-                                        <!-- :readonly="readOnlyStatus" v-model="cloneuserId" @input="onchange" -->
+                                            v-model="userIDModify" >
                                     </div>
 
                                     <div class="input-group mb-3">
@@ -40,7 +37,6 @@
                                         </div>
                                         <input type="text" class="form-control" aria-label="Username"
                                             aria-describedby="basic-addon1" v-model="titleModify">
-                                        <!-- v-model="cloneTitle" :readonly="readOnlyStatus" @input="onchange" -->
                                     </div>
                                 </div>
                                 <div class="modal-footer">
@@ -83,9 +79,7 @@ const props = defineProps<{
     componentName: string,
 }>()
 const titleComponent = ref<string>(props.componentName === 'todo' ? 'TO DO LIST' : 'DONE LIST')
-const task = reactive({
-    id: 0, userId: 0, title: '', completed: false
-})
+const task = reactive({ id: 0, userId: 0, title: '', completed: false })
 const modalStatus = ref<boolean>(false)
 const openModal = () => {
     console.log('open create modal')

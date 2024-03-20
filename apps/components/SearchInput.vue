@@ -9,6 +9,7 @@
 <script setup lang="ts">
 import { watch, ref } from 'vue';
 import { useStore } from '~/stores'
+
 const store = useStore()
 const props = defineProps<{ componentName: string }>()
 const searchModify = ref<string>("")

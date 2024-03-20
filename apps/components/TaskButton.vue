@@ -22,7 +22,7 @@
                                     <span class="input-group-text " id="inputTextuserId">User ID</span>
                                 </div>
                                 <input type="text" class="form-control" aria-label="userId" id="validationuserId"
-                                    aria-describedby="inputTextuserId" v-model="userIDModify">
+                                    aria-describedby="inputTextuserId" v-model="userIDModify" :readonly="readonlyStatus">
                             </div>
 
                             <div class="input-group mb-3">
@@ -30,7 +30,7 @@
                                     <span class="input-group-text" id="basic-addon1">Title</span>
                                 </div>
                                 <input type="text" class="form-control" aria-label="Username"
-                                    aria-describedby="basic-addon1" v-model="titleModify">
+                                    aria-describedby="basic-addon1" v-model="titleModify" :readonly="readonlyStatus">
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -58,6 +58,7 @@ const props = defineProps<{
     detailTask: Task,
     componentName: string
 }>()
+const readonlyStatus = ref<boolean>(props.componentName === 'todo' ? false : true)
 const userIDModify = ref<number>(props.detailTask.userId)
 const titleModify = ref<string>(props.detailTask.title)
 const modalStatus = ref<boolean>(false)
